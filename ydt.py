@@ -82,14 +82,14 @@ def showFloatCard(result, phonetic):
     h = 120
     window.geometry("%dx%d+%d+%d" %(w, h, sw - w - 10, 40))  # 这里的乘是小x
 
-    phoneticL = tk.Label(window, text=phonetic, bg="white")
-    phoneticL.pack()
+    phoneticL = tk.Label(window, text=phonetic, bg="white", justify=tk.LEFT)
+    phoneticL.grid(row=1,column=1,sticky=tk.W)
 
     # 第4步，在图形界面上设定标签
-    resultL = tk.Label(window, text=result, bg="white")
+    resultL = tk.Label(window, text=result, bg="white", wraplength=w-4, justify=tk.LEFT)
     # 说明： bg为背景，font为字体，width为长，height为高，这里的长和高是字符的长和高，比如height=2,就是标签有2个字符这么高
     # 第5步，放置标签
-    resultL.pack()    # Label内容content区域放置位置，自动调节尺寸
+    resultL.grid(row=2,column=1,sticky=tk.W)
     # 放置lable的方法有：1）l.pack(); 2)l.place();
 
     # 第6步，主窗口循环显示
