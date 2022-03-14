@@ -77,10 +77,9 @@ def showFloatCard(result, phonetic):
     window.configure(bg='white')
 
     # 第3步，设定窗口的大小(长 * 宽)
-    sw = window.winfo_screenwidth()
     w = 280
     h = 120
-    window.geometry("%dx%d+%d+%d" %(w, h, sw - w - 10, 40))  # 这里的乘是小x
+    window.geometry(str(w)+"x"+str(h))
 
     phoneticL = tk.Label(window, text=phonetic, bg="white", justify=tk.LEFT)
     phoneticL.grid(row=1,column=1,sticky=tk.W)
