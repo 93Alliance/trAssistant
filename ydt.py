@@ -7,7 +7,6 @@ import random
 import hashlib
 import json
 import tkinter as tk  # 使用Tkinter前需要先导入
-import math
 
 APPID = '026650580f5ed88e'
 APPKey = 'Wf4UyZjTKCwvyrAuNajG3Zze3NIE7EBT'
@@ -73,6 +72,12 @@ def inputWord (isFirst):
 def showFloatCard(result, phonetic):
     # 第1步，实例化object，建立窗口window
     window = tk.Tk()
+    sh = window.winfo_screenheight()
+    scale = round(sh / 1080.0)
+    global windowWidth
+    global windowHeight
+    windowWidth = windowWidth * scale
+    windowHeight = windowHeight * scale
 
     # 第2步，给窗口的可视化起名字
     window.title('有道')
