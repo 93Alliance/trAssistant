@@ -6,6 +6,8 @@ then
     sudo apt-get install xclip -y
 fi
 
+sudo apt-get install python3-tk -y
+
 sudo cp -f ./ydt.py /usr/local/bin/ydt
 sudo chmod 775 /usr/local/bin/ydt
 sudo cp -f ./fanyi.sh /usr/bin/fanyi
