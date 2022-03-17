@@ -7,7 +7,6 @@ then
 fi
 
 sudo apt-get install python3-tk -y
-sudo /usr/bin/pip3 install keyboard
 sudo cp -f ./ydt.py /usr/local/bin/ydt
 sudo chmod 775 /usr/local/bin/ydt
 sudo cp -f ./fanyi.sh /usr/bin/fanyi

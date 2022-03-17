@@ -7,7 +7,6 @@ import random
 import hashlib
 import json
 import tkinter as tk  # 使用Tkinter前需要先导入
-import keyboard
 
 APPID = '026650580f5ed88e'
 APPKey = 'Wf4UyZjTKCwvyrAuNajG3Zze3NIE7EBT'
@@ -113,10 +112,25 @@ def showFloatCard(result, phonetic):
 
     window.bind('<Configure>', onWindowResize)
 
-    def closeWindow():
-        window.destroy()
+    shiftkey = 0
+    def keypress(event):
+        global shiftkey
+        if event.keysym == 'Escape':
+            shiftkey = 1
+        else:
+            return
+    
+    def keyrelease(event):
+        global shiftkey
+        if event.keysym == 'Escape':
+            if shiftkey == 1:
+                shiftkey = 0
+                window.destroy()
+        else:
+            return
 
-    keyboard.add_hotkey('esc', closeWindow)
+    window.bind('<KeyPress>', keypress)
+    window.bind('<KeyRelease>', keyrelease)
 
     # 第6步，主窗口循环显示
     window.mainloop()
