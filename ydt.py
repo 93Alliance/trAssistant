@@ -72,6 +72,7 @@ def inputWord (isFirst):
 def showFloatCard(result, phonetic):
     # 第1步，实例化object，建立窗口window
     window = tk.Tk()
+
     sh = window.winfo_screenheight()
     scale = round(sh / 1080.0)
     global windowWidth
@@ -132,6 +133,7 @@ def showFloatCard(result, phonetic):
     window.bind('<KeyPress>', keypress)
     window.bind('<KeyRelease>', keyrelease)
 
+    window.after(4000, window.destroy) 
     # 第6步，主窗口循环显示
     window.mainloop()
     # 注意，loop因为是循环的意思，window.mainloop就会让window不断的刷新，如果没有mainloop,就是一个静态的window,传入进去的值就不会有循环，mainloop就相当于一个很大的while循环，有个while，每点击一次就会更新一次，所以我们必须要有循环
