@@ -88,7 +88,7 @@ def showFloatCard(result, phonetic):
     window.geometry(str(windowWidth)+"x"+str(windowHeight))
 
     if phonetic != "":
-        phoneticL = tk.Label(window, text=phonetic, bg="white", justify=tk.LEFT)
+        phoneticL = tk.Label(window, text=phonetic, bg="white", justify=tk.LEFT, fg="#00897B")
         phoneticL.pack()
 
     # 第4步，在图形界面上设定标签
