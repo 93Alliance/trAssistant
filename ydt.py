@@ -45,6 +45,7 @@ def fanyi(word, goNext):
         exit()
 
 def showRes(word, res):
+    print(res)
     trs = []
     for i in res['translation']:
         trs.append(i)
@@ -133,6 +134,7 @@ def showFloatCard(result, phonetic):
     window.bind('<KeyPress>', keypress)
     window.bind('<KeyRelease>', keyrelease)
 
+    # TODO: 增加鼠标点击之后重新计算退出时间
     window.after(4000, window.destroy) 
     # 第6步，主窗口循环显示
     window.mainloop()
