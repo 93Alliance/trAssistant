@@ -15,6 +15,7 @@ windowWidth = 320
 windowHeight = 140
 
 def fanyi(word, goNext):
+    word = strip(word)
     baseUrl = 'https://openapi.youdao.com/api'
     salt = str(random.randint(1000000, 9999999))
     sign = APPID + word + salt + APPKey
@@ -44,8 +45,18 @@ def fanyi(word, goNext):
         print(r.status_code)
         exit()
 
+def strip(word: str):
+    lines = word.splitlines()
+    nlines = []
+    for line in lines:
+        if line.endswith('.') or line.endswith('?') or line.endswith('!'):
+            nlines.append(line+'\n')
+        else:
+            nlines.append(line)
+    return ''.join(nlines)
+
+
 def showRes(word, res):
-    print(res)
     trs = []
     for i in res['translation']:
         trs.append(i)
@@ -134,8 +145,7 @@ def showFloatCard(result, phonetic):
     window.bind('<KeyPress>', keypress)
     window.bind('<KeyRelease>', keyrelease)
 
-    # TODO: 增加鼠标点击之后重新计算退出时间
-    window.after(4000, window.destroy) 
+    #window.after(4000, window.destroy) 
     # 第6步，主窗口循环显示
     window.mainloop()
     # 注意，loop因为是循环的意思，window.mainloop就会让window不断的刷新，如果没有mainloop,就是一个静态的window,传入进去的值就不会有循环，mainloop就相当于一个很大的while循环，有个while，每点击一次就会更新一次，所以我们必须要有循环
