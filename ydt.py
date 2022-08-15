@@ -104,7 +104,10 @@ def showFloatCard(result, phonetic):
         phoneticL.pack()
 
     # 第4步，在图形界面上设定标签
-    resultL = tk.Label(window, text=result, bg="white", wraplength=windowWidth-4, justify=tk.LEFT)
+    # resultL = tk.Text(window, text=result, bg="white", wraplength=windowWidth-4, justify=tk.LEFT)
+    resultL = tk.Text(window, width=windowWidth-4, bg="white", wrap='word')
+    resultL.insert(1.0, result)
+    resultL.configure(state='disabled')
     # 说明： bg为背景，font为字体，width为长，height为高，这里的长和高是字符的长和高，比如height=2,就是标签有2个字符这么高
     # 第5步，放置标签
     resultL.pack(fill=tk.BOTH, expand=tk.YES)
@@ -120,7 +123,7 @@ def showFloatCard(result, phonetic):
                 windowWidth = window.winfo_width()
                 windowHeight = window.winfo_height()
                 w = windowWidth - 4
-                resultL.config(wraplength=w)
+                resultL.config(width=w)
         return
 
     window.bind('<Configure>', onWindowResize)
